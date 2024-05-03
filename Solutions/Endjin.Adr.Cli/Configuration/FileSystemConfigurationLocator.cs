@@ -4,7 +4,7 @@
 
 using System;
 using System.IO;
-
+using Endjin.Adr.Cli.Abstractions;
 using Endjin.Adr.Cli.Configuration.Contracts;
 
 namespace Endjin.Adr.Cli.Configuration;
@@ -13,7 +13,7 @@ public class FileSystemConfigurationLocator : IConfigurationLocator
 {
     public string LocatedRootConfiguration()
     {
-        string directory = Environment.CurrentDirectory;
+        string directory = WorkingDirectory.Current;
 
         while (!Directory.Exists(Path.Combine(directory, ".git")))
         {
@@ -24,7 +24,7 @@ public class FileSystemConfigurationLocator : IConfigurationLocator
             else
             {
                 // We've reached the root of the file system, so we'll just use the current directory.
-                directory = Environment.CurrentDirectory;
+                directory = WorkingDirectory.Current;
                 break;
             }
         }

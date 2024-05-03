@@ -81,7 +81,7 @@ public partial class NewAdrCommand : AsyncCommand<NewAdrCommand.Settings>
 
                 if (string.IsNullOrEmpty(targetPath))
                 {
-                    targetPath = Environment.CurrentDirectory;
+                    targetPath = WorkingDirectory.Current;
                 }
             }
 
