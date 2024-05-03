@@ -1,8 +1,9 @@
-﻿namespace Corvus.Configuration.Specs.Steps;
+﻿using System.Threading.Tasks;
 using Endjin.Adr.Cli;
 using NUnit.Framework;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
+
+namespace Endjin.AdrCli.Specs.Steps;
 
 [Binding]
 public class InitSteps
