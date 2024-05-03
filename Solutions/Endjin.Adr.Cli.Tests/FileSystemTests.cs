@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Endjin.Adr.Cli.Abstractions;
+using NUnit.Framework;
 
 namespace Endjin.Adr.Cli.Tests;
 
@@ -8,12 +9,10 @@ public class FileSystemTests
     [Test]
     public void Get_current_working_directory()
     {
-        string cwd = Endjin.Adr.Cli.Abstractions.WorkingDirectory.Current;
-        Assert.That(cwd, Is.EqualTo(System.Environment.CurrentDirectory));
+        Assert.That(WorkingDirectory.Current, Is.EqualTo(Environment.CurrentDirectory));
 
-        Abstractions.WorkingDirectory.SetCurrentDirectory(() => @"C:\Temp");
-        cwd = Endjin.Adr.Cli.Abstractions.WorkingDirectory.Current;
-        Assert.That(cwd, Is.EqualTo(@"C:\Temp"));
+        WorkingDirectory.SetCurrentDirectory(() => @"C:\Temp");
+        Assert.That(WorkingDirectory.Current, Is.EqualTo(@"C:\Temp"));
     }
 
     [Test]
